@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tewetech/icon/refs/heads/main/favicon-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumpulan Icon Font Awesome - Lengkap</title>
+
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tewetech/home/refs/heads/main/favicon-rumah.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* ==================================== */
+    /* VARIABEL TEMA & DASAR                */
+    /* ==================================== */
+    
+    /* Variabel untuk Tema Gelap (Default) */
+    :root {
+        --dark-bg: #1A202C;
+        --card-bg: #2D3748;
+        --card-hover: #4A5568;
+        --text-color: #E2E8F0;
+        --subtle-text: #A0AEC0;
+        --accent-1: #4299E1; /* Biru Cerah */
+        --accent-2: #38B2AC; /* Hijau Tosca */
+        --spacing: 20px;
+        --notif-bg: var(--accent-1);
+        --notif-text: var(--dark-bg);
+    }
+
+    /* Variabel untuk Tema Terang */
+    .light-theme {
+        --dark-bg: #F7FAFC;
+        --card-bg: #FFFFFF;
+        --card-hover: #EDF2F7;
+        --text-color: #2D3748; /* Abu-abu Gelap */
+        --subtle-text: #718096; /* Abu-abu Sedang */
+        --accent-1: #4299E1; /* Biru Cerah */
+        --accent-2: #38B2AC; /* Hijau Tosca */
+        --notif-bg: var(--accent-1);
+        --notif-text: var(--dark-bg);
+    }
+
+    /* Styling dasar untuk body */
+    body {
+      font-family: "Roboto Mono", monospace;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--text-color);
+      position: relative;
+      overflow-x: hidden;
+      background-color: var(--dark-bg);
+      padding: var(--spacing);
+      transition: background-color 0.4s ease;
+    }
+    
+    /* Header situs */
+    .site-header {
+        text-align: center;
+        padding: 30px var(--spacing) 10px;
+        animation: fadeIn 0.8s ease-out both;
+        animation-delay: 0.2s;
+        margin-bottom: 20px;
+    }
+
+    .site-header h1 {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--accent-1);
+        text-shadow: 0 0 10px rgba(66, 153, 225, 0.3);
+        margin: 0;
+        transition: color 0.4s ease, text-shadow 0.4s ease;
+    }
+
+    .site-header p {
+        font-family: "Roboto Mono", monospace;
+        font-size: 0.8rem;
+        color: var(--subtle-text);
+        margin: 5px 0 0 0;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--subtle-text);
+      padding-bottom: 5px;
+      color: var(--accent-2);
+      font-family: "Rajdhani", sans-serif;
+      text-align: left;
+      width: 90vw;
+      max-width: 1200px;
+      transition: color 0.4s ease, border-color 0.4s ease;
+    }
+    
+    /* ==================================== */
+    /* GRID ICON                            */
+    /* ==================================== */
+    
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+      padding: 0 20px;
+      max-width: 1200px;
+      width: 90vw;
+    }
+
+    /* Kartu Icon */
+    .icon-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    
+    /* Efek Hover pada kartu icon */
+    .icon-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        background: var(--card-hover);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .icon-card i {
+      font-size: 32px;
+      margin-bottom: 10px;
+      display: block;
+      color: var(--accent-1);
+      transition: color 0.4s ease;
+    }
+
+    .icon-card span {
+      font-size: 11px;
+      color: var(--subtle-text);
+      word-break: break-word;
+      transition: color 0.4s ease;
+    }
+    
+    /* ==================================== */
+    /* FLOATING NOTIFIKASI                  */
+    /* ==================================== */
+    
+    .copy-notification {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background-color: var(--notif-bg);
+      color: var(--notif-text);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .copy-notification.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-5px);
+    }
+
+    /* ==================================== */
+    /* TOMBOL TEMA                          */
+    /* ==================================== */
+    
+    .theme-switcher {
+        position: fixed;
+        bottom: var(--spacing);
+        left: var(--spacing);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    
+    .theme-button {
+        background: var(--card-bg);
+        color: var(--subtle-text);
+        border: 1px solid var(--subtle-text);
+        border-radius: 8px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, transform 0.2s, border-color 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .theme-button:hover {
+        transform: translateY(-2px);
+    }
+    
+    .theme-button.active {
+        background: var(--accent-1);
+        color: var(--notif-text);
+        border-color: var(--accent-1);
+    }
+
+    /* ==================================== */
+    /* ANIMASI                              */
+    /* ==================================== */
+    
+    /* Animasi fade-in */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==================================== */
+    /* RESPONSIVITAS                        */
+    /* ==================================== */
+    
+    @media (max-width: 768px) {
+      .icon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Daftar Icon Font Awesome</h1>
+    <p>Klik pada icon untuk menyalin kodenya</p>
+  </header>
+
+  <div id="categories"></div>
+
+  <div class="theme-switcher">
+    <button class="theme-button" data-theme="auto"><i class="fas fa-desktop"></i></button>
+    <button class="theme-button" data-theme="light"><i class="fas fa-sun"></i></button>
+    <button class="theme-button" data-theme="dark"><i class="fas fa-moon"></i></button>
+  </div>
+
+  <script>
+    // Memilih elemen container kategori
+    const categoriesContainer = document.getElementById("categories");
+    const themeButtons = document.querySelectorAll(".theme-button");
+
+    // Fungsi untuk membuat grid icon per kategori
+    function buatKategori(judul, prefix, icons) {
+      const h2 = document.createElement("h2");
+      h2.textContent = judul;
+      categoriesContainer.appendChild(h2);
+
+      const grid = document.createElement("div");
+      grid.className = "icon-grid";
+      categoriesContainer.appendChild(grid);
+
+      icons.forEach(icon => {
+        const card = document.createElement("div");
+        card.className = "icon-card";
+        const code = `<i class="${prefix} ${icon}"></i>`;
+
+        const notif = document.createElement("div");
+        notif.className = "copy-notification";
+        notif.textContent = "Disalin!";
+
+        card.innerHTML = `
+          <i class="${prefix} ${icon}"></i>
+          <span>${prefix} ${icon}</span>
+        `;
+        card.appendChild(notif);
+
+        card.addEventListener("click", () => {
+          navigator.clipboard.writeText(code).then(() => {
+            notif.classList.add("show");
+            setTimeout(() => {
+                notif.classList.remove("show");
+            }, 1500);
+          });
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Fungsi untuk mengatur tema
+    function setTheme(theme) {
+      const body = document.body;
+      localStorage.setItem("theme", theme);
+      document.querySelector(".theme-button.active")?.classList.remove("active");
+      document.querySelector(`[data-theme="${theme}"]`).classList.add("active");
+
+      if (theme === "light") {
+        body.classList.add("light-theme");
+      } else if (theme === "dark") {
+        body.classList.remove("light-theme");
+      } else { // Auto
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          body.classList.remove("light-theme");
+        } else {
+          body.classList.add("light-theme");
+        }
+      }
+    }
+
+    // Event listener untuk tombol tema
+    themeButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            setTheme(button.dataset.theme);
+        });
+    });
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        setTheme("auto");
+    }
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        if (localStorage.getItem("theme") === "auto") {
+            setTheme("auto");
+        }
+    });
+
+    // ==========================
+    // DAFTAR KATEGORI ICON
+    // ==========================
+
+    buatKategori("Umum", "fas", [
+      "fa-home", "fa-user", "fa-heart", "fa-star", "fa-bell", "fa-envelope",
+      "fa-lock", "fa-unlock", "fa-cog", "fa-camera", "fa-music", "fa-book",
+      "fa-search", "fa-print", "fa-trash", "fa-edit", "fa-save", "fa-share",
+      "fa-globe", "fa-map", "fa-wifi", "fa-cloud", "fa-download", "fa-upload",
+      "fa-lightbulb", "fa-calendar", "fa-clock", "fa-gift", "fa-leaf", "fa-bolt",
+      "fa-info-circle", "fa-question-circle", "fa-exclamation-triangle",
+      "fa-check-circle", "fa-times-circle", "fa-plus-circle", "fa-minus-circle",
+      "fa-thumbtack", "fa-paperclip", "fa-link", "fa-bookmark", "fa-chart-bar",
+      "fa-comment", "fa-eye", "fa-filter", "fa-flag", "fa-folder-open",
+      "fa-image", "fa-key", "fa-list", "fa-moon", "fa-sun"
+    ]);
+
+    buatKategori("Navigasi", "fas", [
+      "fa-arrow-up", "fa-arrow-down", "fa-arrow-left", "fa-arrow-right",
+      "fa-chevron-up", "fa-chevron-down", "fa-chevron-left", "fa-chevron-right",
+      "fa-angle-up", "fa-angle-down", "fa-angle-left", "fa-angle-right",
+      "fa-bars", "fa-ellipsis-h", "fa-ellipsis-v", "fa-sync", "fa-sign-in-alt",
+      "fa-sign-out-alt", "fa-external-link-alt", "fa-caret-up", "fa-caret-down",
+      "fa-long-arrow-alt-up", "fa-long-arrow-alt-down", "fa-exchange-alt",
+      "fa-undo", "fa-redo", "fa-home", "fa-reply", "fa-reply-all", "fa-share",
+      "fa-forward", "fa-backward", "fa-search-plus", "fa-search-minus"
+    ]);
+
+    buatKategori("Media Sosial", "fab", [
+      "fa-facebook", "fa-twitter", "fa-instagram", "fa-whatsapp", "fa-youtube",
+      "fa-github", "fa-gitlab", "fa-tiktok", "fa-linkedin", "fa-pinterest",
+      "fa-reddit", "fa-telegram", "fa-discord", "fa-snapchat", "fa-skype",
+      "fa-dribbble", "fa-behance", "fa-flickr", "fa-soundcloud", "fa-twitch",
+      "fa-vimeo", "fa-tumblr", "fa-stack-overflow", "fa-slack", "fa-google",
+      "fa-amazon", "fa-apple", "fa-android", "fa-windows", "fa-linux",
+      "fa-paypal", "fa-spotify", "fa-medium", "fa-quora", "fa-weixin"
+    ]);
+
+    buatKategori("Keuangan & Bisnis", "fas", [
+      "fa-dollar-sign", "fa-euro-sign", "fa-yen-sign", "fa-credit-card",
+      "fa-money-bill-wave", "fa-wallet", "fa-receipt", "fa-chart-line",
+      "fa-chart-pie", "fa-building", "fa-store-alt", "fa-sitemap", "fa-handshake",
+      "fa-piggy-bank", "fa-landmark", "fa-balance-scale", "fa-briefcase",
+      "fa-coins", "fa-file-invoice-dollar", "fa-percent"
+    ]);
+    
+    buatKategori("Profesi & Pekerjaan", "fas", [
+      "fa-user-tie", "fa-hard-hat", "fa-ruler", "fa-hammer", "fa-gavel", "fa-user-secret",
+      "fa-user-nurse", "fa-microscope", "fa-cogs", "fa-paint-roller", "fa-palette",
+      "fa-camera-retro", "fa-book-reader", "fa-chalkboard-teacher"
+    ]);
+
+    buatKategori("Alat & Perlengkapan", "fas", [
+      "fa-tools", "fa-wrench", "fa-hammer", "fa-screwdriver", "fa-plug",
+      "fa-lightbulb", "fa-power-off", "fa-wifi", "fa-camera", "fa-microphone",
+      "fa-headphones", "fa-toolbox", "fa-tape", "fa-compass", "fa-ruler-combined"
+    ]);
+
+    buatKategori("Aplikasi & File", "fas", [
+      "fa-file", "fa-file-alt", "fa-file-pdf", "fa-file-word", "fa-file-excel",
+      "fa-file-powerpoint", "fa-file-image", "fa-file-audio", "fa-file-video",
+      "fa-folder", "fa-folder-open", "fa-copy", "fa-paste", "fa-cut",
+      "fa-file-archive", "fa-file-code", "fa-folder-plus", "fa-folder-minus",
+      "fa-cloud-upload-alt", "fa-cloud-download-alt", "fa-save", "fa-paste"
+    ]);
+    
+    buatKategori("Teknologi & Perangkat", "fas", [
+      "fa-laptop-code", "fa-desktop", "fa-mobile-alt", "fa-tablet-alt",
+      "fa-database", "fa-code", "fa-terminal", "fa-server", "fa-hdd", "fa-keyboard",
+      "fa-wifi", "fa-bluetooth-b", "fa-microchip", "fa-robot", "fa-plug",
+      "fa-ethernet", "fa-satellite", "fa-projector", "fa-camera-retro",
+      "fa-headset"
+    ]);
+
+    buatKategori("Transportasi", "fas", [
+      "fa-car", "fa-bus", "fa-truck", "fa-motorcycle", "fa-bicycle", "fa-plane",
+      "fa-ship", "fa-subway", "fa-train", "fa-taxi", "fa-helicopter", "fa-rocket",
+      "fa-shuttle-van", "fa-gas-pump", "fa-road", "fa-traffic-light", "fa-route",
+      "fa-road", "fa-ship", "fa-ferry"
+    ]);
+
+    buatKategori("Kesehatan", "fas", [
+      "fa-ambulance", "fa-hospital", "fa-heartbeat", "fa-stethoscope",
+      "fa-user-md", "fa-notes-medical", "fa-pills", "fa-syringe", "fa-procedures",
+      "fa-wheelchair", "fa-band-aid", "fa-first-aid", "fa-clinic-medical",
+      "fa-hand-holding-heart", "fa-plus-square", "fa-heart-rate", "fa-virus",
+      "fa-viruses", "fa-dna", "fa-x-ray", "fa-crutch", "fa-microscope"
+    ]);
+
+    buatKategori("E-Commerce", "fas", [
+      "fa-shopping-cart", "fa-shopping-bag", "fa-shopping-basket", "fa-cash-register",
+      "fa-barcode", "fa-qrcode", "fa-gift", "fa-store-alt", "fa-box-open",
+      "fa-tags", "fa-truck-moving", "fa-shipping-fast", "fa-dolly", "fa-store",
+      "fa-credit-card", "fa-money-bill", "fa-wallet", "fa-receipt"
+    ]);
+    
+    buatKategori("Peta & Lokasi", "fas", [
+      "fa-map-marked-alt", "fa-map-pin", "fa-map", "fa-compass", "fa-globe-americas",
+      "fa-mountain", "fa-road", "fa-route", "fa-street-view", "fa-thumbtack",
+      "fa-globe-europe", "fa-plane-departure", "fa-city", "fa-building",
+      "fa-parking"
+    ]);
+
+    buatKategori("Hewan", "fas", [
+      "fa-dog", "fa-cat", "fa-fish", "fa-horse", "fa-dragon", "fa-frog",
+      "fa-crow", "fa-dove", "fa-spider", "fa-hippo", "fa-otter", "fa-paw",
+      "fa-feather-alt", "fa-bugs", "fa-shrimp", "fa-kiwi-bird", "fa-fish-fins",
+      "fa-cow", "fa-pig", "fa-sheep"
+    ]);
+
+    buatKategori("Makanan & Minuman", "fas", [
+      "fa-utensils", "fa-hamburger", "fa-pizza-slice", "fa-ice-cream",
+      "fa-apple-alt", "fa-carrot", "fa-lemon", "fa-pepper-hot", "fa-coffee",
+      "fa-wine-bottle", "fa-beer", "fa-cocktail", "fa-cheese", "fa-cookie",
+      "fa-bread-slice", "fa-egg", "fa-hotdog", "fa-cookie-bite", "fa-mug-hot",
+      "fa-glass-martini", "fa-spoon", "fa-seedling"
+    ]);
+
+    buatKategori("Alam & Cuaca", "fas", [
+      "fa-sun", "fa-moon", "fa-cloud-sun", "fa-cloud-moon", "fa-cloud-rain",
+      "fa-cloud-showers-heavy", "fa-cloud-sun-rain", "fa-bolt", "fa-umbrella",
+      "fa-snowflake", "fa-mountain", "fa-tree", "fa-seedling", "fa-water",
+      "fa-smog", "fa-wind", "fa-rainbow", "fa-poo-storm", "fa-leaf", "fa-fire",
+      "fa-volcano", "fa-vial"
+    ]);
+    
+    buatKategori("Olahraga", "fas", [
+      "fa-futbol", "fa-basketball-ball", "fa-baseball-ball", "fa-volleyball-ball",
+      "fa-swimmer", "fa-running", "fa-biking", "fa-dumbbell", "fa-skiing",
+      "fa-golf-ball", "fa-table-tennis", "fa-trophy", "fa-medal", "fa-bowling-ball",
+      "fa-skating", "fa-football-ball", "fa-quidditch", "fa-racquet", "fa-hockey-puck"
+    ]);
+    
+    buatKategori("Bangunan & Tempat", "fas", [
+      "fa-building", "fa-university", "fa-city", "fa-landmark", "fa-school",
+      "fa-hospital", "fa-church", "fa-mosque", "fa-torii-gate", "fa-synagogue",
+      "fa-hotel", "fa-store", "fa-warehouse", "fa-factory", "fa-gopuram",
+      "fa-house-damage", "fa-igloo", "fa-industry", "fa-warehouse", "fa-broadcast-tower"
+    ]);
+    
+    buatKategori("Musik & Media", "fas", [
+      "fa-play", "fa-pause", "fa-stop", "fa-forward", "fa-backward",
+      "fa-volume-up", "fa-volume-down", "fa-volume-mute", "fa-music", "fa-headphones",
+      "fa-microphone-alt", "fa-podcast", "fa-record-vinyl", "fa-compact-disc",
+      "fa-video", "fa-film", "fa-microphone-alt-slash"
+    ]);
+
+    buatKategori("Permainan", "fas", [
+      "fa-gamepad", "fa-dice", "fa-chess", "fa-chess-king", "fa-dragon",
+      "fa-ghost", "fa-dungeon", "fa-trophy", "fa-medal", "fa-fist-raised",
+      "fa-hat-wizard", "fa-jedi", "fa-map-signs", "fa-gamepad-alt", "fa-joystick"
+    ]);
+    
+    buatKategori("Sains & Edukasi", "fas", [
+      "fa-atom", "fa-flask", "fa-microscope", "fa-vial", "fa-graduation-cap",
+      "fa-book-open", "fa-pencil-alt", "fa-calculator", "fa-dna", "fa-robot",
+      "fa-satellite", "fa-globe-asia", "fa-chart-line"
+    ]);
+    
+    buatKategori("Seni & Hiburan", "fas", [
+      "fa-theater-masks", "fa-paint-brush", "fa-palette", "fa-film", "fa-camera-retro",
+      "fa-guitar", "fa-headphones", "fa-microphone-alt", "fa-star", "fa-mask",
+      "fa-ticket-alt", "fa-drum"
+    ]);
+    
+    buatKategori("Bentuk & Geometri", "fas", [
+      "fa-square-full", "fa-circle", "fa-star", "fa-heart", "fa-plus", "fa-minus",
+      "fa-times", "fa-slash", "fa-asterisk", "fa-grip-horizontal", "fa-grip-vertical",
+      "fa-hexagon", "fa-octagon", "fa-square-check"
+    ]);
+    
+  </script>
+</body>
+</html>
